@@ -5,16 +5,16 @@ contract wallet {
     uint public balanceReceived;
     address payableTo;
 
-    function receiveMoney() public payable {
-        balanceReceived +=msg.value; 
+function receiveMoney() public payable {
+    balanceReceived +=msg.value; 
 
 
-    }
+}
 function getBalance() public view returns(uint){
     return address(this).balance;
 }
 
-function withdrawMoney() public {
+function withdrawMoney() public  {
     address payable to = payable(msg.sender);
     to.transfer(getBalance());
 }
@@ -27,7 +27,5 @@ function withdrawMoneyTo(address _payableTo) public {
 // fall back function required by any smart conrtract for Transactions that has no data. 
 receive() external payable {
 }
-
-
 
 }
